@@ -1,3 +1,4 @@
+const os = require('os');
 const mongoose = require('mongoose');
 const request = require('supertest');
 const app = require('../src/app');
@@ -8,7 +9,13 @@ const User = require('../src/models/User');
 mongoose.set('bufferCommands', false);
 
 async function connect() {
-  await mongoose.connect(config.mongoUri, { serverSelectionTimeoutMS: 5000 });
+  await mongoose.connect(config.mongoUri, {
+    serverSelectionTimeoutMS: 5000,
+    // Workaround for MongoDB driver >= 7.6 under Jest (NODE-7832): the driver loads `os`
+    // via dynamic import(), which Jest's VM sandbox rejects, so the handshake is sent
+    // without client metadata and the server refuses it. Passing `os` explicitly avoids that.
+    runtimeAdapters: { os },
+  });
   await Promise.all(Object.values(mongoose.models).map((m) => m.syncIndexes()));
 }
 

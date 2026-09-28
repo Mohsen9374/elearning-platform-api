@@ -1,7 +1,7 @@
 # E-Learning Platform API
 
 [![CI](https://github.com/Mohsen9374/elearning-platform-api/actions/workflows/ci.yml/badge.svg)](https://github.com/Mohsen9374/elearning-platform-api/actions/workflows/ci.yml)
-![Node.js](https://img.shields.io/badge/Node.js-20%2B-339933?logo=node.js&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-22%2B-339933?logo=node.js&logoColor=white)
 ![Express](https://img.shields.io/badge/Express-5-000000?logo=express&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose%209-47A248?logo=mongodb&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-blue)
@@ -29,7 +29,7 @@ A RESTful backend for an online course platform in the style of Udemy: a public 
 
 | Layer | Technology |
 |---|---|
-| Runtime | Node.js 20+ |
+| Runtime | Node.js 22+ |
 | Framework | Express 5 |
 | Database | MongoDB with Mongoose 9 |
 | Auth | jsonwebtoken, bcryptjs |
@@ -137,7 +137,7 @@ The API runs at `http://localhost:3000`.
 
 ### Option B: Local Node.js
 
-Prerequisites: Node.js 20+ and a running MongoDB instance.
+Prerequisites: Node.js 22+ and a running MongoDB instance.
 
 ```bash
 npm install

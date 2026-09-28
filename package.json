@@ -39,13 +39,17 @@
     "supertest": "^7.3.0"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "jest": {
     "testEnvironment": "node",
     "testTimeout": 20000,
     "setupFiles": [
       "<rootDir>/tests/env.js"
+    ],
+    "reporters": [
+      "default",
+      "github-actions"
     ]
   }
 }
