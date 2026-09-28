@@ -4,8 +4,11 @@ const app = require('../src/app');
 const config = require('../src/config');
 const User = require('../src/models/User');
 
+// Fail fast instead of buffering queries when the database is unreachable.
+mongoose.set('bufferCommands', false);
+
 async function connect() {
-  await mongoose.connect(config.mongoUri);
+  await mongoose.connect(config.mongoUri, { serverSelectionTimeoutMS: 5000 });
   await Promise.all(Object.values(mongoose.models).map((m) => m.syncIndexes()));
 }
 
